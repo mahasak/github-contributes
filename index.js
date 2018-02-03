@@ -1,20 +1,24 @@
-
-var requestify = require('requestify');
+var requestaxiosify = require('axios');
 var cheerio = require('cheerio');
-var svgson = require('svgson')
 var { DateTime } = require('luxon');
 
-var getGitHubContributes = async (githubUsername,  server = 'github.com') => {
+var getGitHubContributes = (githubUsername,  server = 'github.com') => {
   var endpoint = 'https://' + server + '/users/' + githubUsername +'/contributions?to=' + DateTime.local().toISODate();
-  var data = [];
-  var response = await requestify.get(endpoint);
-  var $ = cheerio.load(response.getBody());
-  $('.day').each((_, e) => {
+  
+  return axios.get(endpoint)
+    .then( result=> {
+      var $ = cheerio.load(result.data);
+      var data = [];
+      
+      $('.day').each((_, e) => {
         date = $(e).data('date');
         count = parseInt($(e).data('count'), 10);
         data.push({date, count});
       });
-  return data;
+
+      return data;
+    })
+    .catch(error => {console.log(error);return Promise.reject(error);})
 }
 
 module.exports = getGitHubContributes;
