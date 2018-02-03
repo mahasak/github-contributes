@@ -21,6 +21,7 @@
     "cheerio": "^1.0.0-rc.2",
     "dom-parser": "^0.1.5",
     "jsdom": "^11.6.2",
+    "luxon": "^0.4.0",
     "requestify": "^0.2.5",
     "svgson": "^2.1.0"
   }
