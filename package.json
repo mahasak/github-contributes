@@ -1,6 +1,6 @@
 {
   "name": "github-contributes",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple module to get GitHub contributes information for a user",
   "main": "index.js",
   "scripts": {
