@@ -1,0 +1,26 @@
+{
+  "name": "github-contributes",
+  "version": "1.0.0",
+  "description": "Simple module to get GitHub contributes information for a user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mahasak/github-contributes.git"
+  },
+  "author": "Mahasak Pijittum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mahasak/github-contributes/issues"
+  },
+  "homepage": "https://github.com/mahasak/github-contributes#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "cheerio": "^1.0.0-rc.2",
+    "dom-parser": "^0.1.5",
+    "jsdom": "^11.6.2",
+    "requestify": "^0.2.5"
+  }
+}
