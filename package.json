@@ -16,7 +16,8 @@
     "url": "https://github.com/mahasak/github-contributes/issues"
   },
   "homepage": "https://github.com/mahasak/github-contributes#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "axios": "^0.17.1",
     "cheerio": "^1.0.0-rc.2",
     "luxon": "^0.4.0"
