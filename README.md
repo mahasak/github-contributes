@@ -3,11 +3,18 @@
 ## usage:
 ```
 
-var getGitHubContributes = require('github-contributes');
+var contributions = require("./index");
 
-getGitHubContributes('mahasak').then( r => console.log(r));
+var contrib = async () => {
+  try {
+    const data = await contributions("mahasak", "github.com");
+    console.log(data);
+  } catch (err) {
+    console.log(err, err.stack);
+  }
+};
+
+contrib();
 
 ```
 
-## Todo:
-* check promise return
