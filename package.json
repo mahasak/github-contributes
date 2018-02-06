@@ -4,7 +4,7 @@
   "description": "Simple module to get GitHub contributes information for a user",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,6 @@
     "axios": "^0.17.1",
     "cheerio": "^1.0.0-rc.2",
     "luxon": "^0.4.0"
-  }
+  },
+  "devDependencies": {}
 }
