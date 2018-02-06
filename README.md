@@ -1,6 +1,6 @@
-Simple module to get Github Contribute
+# Simple module to get Github Contribute
 
-# usage:
+## usage:
 ```
 
 var getGitHubContributes = require('github-contributes');
@@ -8,3 +8,6 @@ var getGitHubContributes = require('github-contributes');
 getGitHubContributes('mahasak').then( r => console.log(r));
 
 ```
+
+## Todo:
+* check promise return
