@@ -1,8 +1,8 @@
-var contributions = require("./index");
+var github = require("./index");
 
 var test = async () => {
   try {
-    const data = await contributions("mahasak", "github.com");
+    const data = await github.contributions("mahasak", "github.com");
     console.log(data);
   } catch (err) {
     console.log(err, err.stack);

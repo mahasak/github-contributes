@@ -21,13 +21,27 @@ var fetch = async (username, server = "github.com") => {
     .catch(error => {console.log(error);return Promise.reject(error);})
 }
 
-module.exports = async (username, server = 'github.com') => {
-  try {
-    const contrib = await fetch(username, server);
-    return contrib
-  }
-  catch(err)
-  {
-    console.log(err, err.stack);
+var language = (server, username, repository) => {
+  return axios.get(`https://${server}/repos/${username}/${repository}/${language}`)
+    .then( r=> {
+      var $ = cheerio.load(r.data);
+
+      var data = [];
+      console.log(r.data);
+      return data;
+    })    
+    .catch(error => {console.log(error);return Promise.reject(error);})
+}
+
+module.exports = {
+  contributions: async (username, server = 'github.com') => {
+    try {
+      const contrib = await fetch(username, server);
+      return contrib
+    }
+    catch(err)
+    {
+      console.log(err, err.stack);
+    }
   }
 }
