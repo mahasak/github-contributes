@@ -1,10 +1,12 @@
-var getGitHubContributes = require('./index');
+var getGitHubContributes = require("./index");
 
-var x = getGitHubContributes('mahasak')
-.then( r => {
-  r
-  console.log(r)
-  console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
-});
+var test = async () => {
+  try {
+    const data = await getGitHubContributes("mahasak");
+    console.log(data);
+  } catch (err) {
+    console.log(err, err.stack);
+  }
+};
 
-
+test();
