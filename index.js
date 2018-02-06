@@ -1,13 +1,12 @@
-var requestaxiosify = require('axios');
+var axios = require('axios');
 var cheerio = require('cheerio');
 var { DateTime } = require('luxon');
 
-var getGitHubContributes = (githubUsername,  server = 'github.com') => {
-  var endpoint = 'https://' + server + '/users/' + githubUsername +'/contributions?to=' + DateTime.local().toISODate();
-  
-  return axios.get(endpoint)
-    .then( result=> {
-      var $ = cheerio.load(result.data);
+var fetch = async (username, server = "github.com") => {
+  return axios.get(`https://${server}/users/${username}/contributions?to=${DateTime.local().toISODate()}`)
+    .then( r=> {
+      var $ = cheerio.load(r.data);
+
       var data = [];
       
       $('.day').each((_, e) => {
@@ -16,9 +15,19 @@ var getGitHubContributes = (githubUsername,  server = 'github.com') => {
         data.push({date, count});
       });
 
+      
       return data;
-    })
+    })    
     .catch(error => {console.log(error);return Promise.reject(error);})
 }
 
-module.exports = getGitHubContributes;
+module.exports = async (username, server = 'github.com') => {
+  try {
+    const contrib = await fetch(username, server);
+    return contrib
+  }
+  catch(err)
+  {
+    console.log(err, err.stack);
+  }
+}
