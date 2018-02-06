@@ -2,19 +2,21 @@
 
 ## usage:
 ```
+var github = require("github-contributes");
 
-var contributions = require("./index");
-
-var contrib = async () => {
+var test = async () => {
   try {
-    const data = await contributions("mahasak", "github.com");
-    console.log(data);
+    const contributions = await github.contributions("mahasak", "github.com");
+    console.log(contributions);
+
+    const languages = await github.languages("mahasak", "github-contributes");
+    console.log(languages);
   } catch (err) {
     console.log(err, err.stack);
   }
 };
 
-contrib();
+test();
 
 ```
 
